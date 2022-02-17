@@ -18,7 +18,6 @@ phases:
       - adduser docker
       - passwd docker
       - gpasswd -a $USER docker
-      - echo systemctl status docker.service
       - systemctl start docker
       - docker build -t $REPOSITORY_URI:latest .
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
