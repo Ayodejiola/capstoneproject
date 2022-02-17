@@ -15,6 +15,7 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
+      - adduser docker
       - gpasswd -a $USER docker
       - echo systemctl status docker.service
       - systemctl start docker
