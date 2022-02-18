@@ -1,4 +1,5 @@
-# CI/CD For a Springboot Application on AWS ECS
+# CI/CD For a Springboot Application on AWS ECS 
+http://54.242.136.181:8080/orders
 
 ![Diagram for presentation](https://user-images.githubusercontent.com/97601366/154591988-0ac89658-90e0-49e0-9753-2c20b716b1c1.png)
 
@@ -17,3 +18,6 @@ Critical steps to remember:
 Congigure IAM roles for Codebuild
 Update Repon URI in buildspec.yml
 Expose ports in Security group for ecs to be accessible
+Take note of the branch you're commiting to.
+
+http://54.242.136.181:8080/orders
