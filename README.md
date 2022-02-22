@@ -119,9 +119,8 @@ Skip the deploy stage and create the pipeline
 * Expose ports 80 and 8080
 * Enable auto Assign IP
 * Run task
-
-COnfigure VPC, subnet,
-Ensure that auto assign IP is enabled and ensure that the security group has its ports exposed(8080 and 80) so you can access your application on that post
+* Configure VPC, subnet,
+* Ensure that auto assign IP is enabled and ensure that the security group has its ports exposed(8080 and 80) so you can access your application on that post
 
 
 Each time the source(master branch) is modified, the pipeline is triggered and the newer version is updated
