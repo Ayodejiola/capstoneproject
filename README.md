@@ -107,45 +107,20 @@ Skip the deploy stage and create the pipeline
 
 
 
-## Step 7: Create an ECS Cluster, then create a task using the task definition created earlier
-Ensure that auto assign IP is enabled and ensure that the security group has its ports exposed(8080 and 80)
+## Step 7: Create an ECS Cluster and run task(using task definition created earlier)
+![run taskedditted](https://user-images.githubusercontent.com/97601366/155229168-856a82d3-dc0f-4042-93c8-2eae11fd1f6e.png)
 
-## Step 8: 
+* Select Fargate
+* Select Linux
+* Select Task Definition
+* Select VPC and SUBnet
+* Expose ports 80 and 8080
+* Enable auto Assign IP
+* Run task
 
+COnfigure VPC, subnet,
+Ensure that auto assign IP is enabled and ensure that the security group has its ports exposed(8080 and 80) so you can access your application on that post
 
-phases:
-  pre_build:
-    commands:
-      - mvn clean install
-      - echo Logging in to Amazon ECR...
-      - aws --version
-      - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
-      - REPOSITORY_URI=484927367294.dkr.ecr.us-east-1.amazonaws.com/javadockerized
-      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
-      - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
-  build:
-    commands:
-      - echo Build started on `date`
-      - echo Building the Docker image...
-      - docker build -t $REPOSITORY_URI:latest .
-      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
-  post_build:
-    commands:
-      - echo Build completed on `date`
-      - echo Pushing the Docker images...
-      - docker push $REPOSITORY_URI:latest
-      - docker push $REPOSITORY_URI:$IMAGE_TAG
-      - echo Writing image definitions file...
-      - printf '[{"name":"order-service","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
-      - cat imagedefinitions.json
-artifacts:
-  files:
-   - imagedefinitions.json
-   - target/order-service.jar
-
-
-
-Obtain the IP address of the task running alongside its ports and you can access the service.
 
 Each time the source(master branch) is modified, the pipeline is triggered and the newer version is updated
 
