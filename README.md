@@ -41,7 +41,6 @@ https://docs.github.com/en/get-started/using-git/about-git#github-and-the-comman
 
 ![image](https://user-images.githubusercontent.com/97601366/155216588-0e458725-95ab-47f3-9cc6-7227b4635fca.png)
 ![image](https://user-images.githubusercontent.com/97601366/155216789-5ab620de-3b89-4f4d-95c5-61e8e024f525.png)
-![codepipelineeddited2](https://user-images.githubusercontent.com/97601366/155222729-41baa1f1-358b-436b-bd01-ce310f04283c.png)
 
 ## Step 3: Specify your buildspec as seen below
 
@@ -84,25 +83,29 @@ Configure codebuild as follows:
 ![codebuild2eddited](https://user-images.githubusercontent.com/97601366/155219066-d3315295-9111-498f-888b-c362f38aae76.png)
 ![image](https://user-images.githubusercontent.com/97601366/155219234-516f173c-93f1-432f-bc9e-10a15fe86fd0.png)
 
-
 While configuring our codebuild, notice that we set Github as our source so our Buildspec can be fetched from our repo(source). We also ensure that the "priviledged" checkbox is ticked. This would give elevated permissions needed for docker operations.
 
-
 ## Step 5: Create codepipeline, specify the stages(source, codebuild- created earlier)
-
+Assign the below policies to your codebuildrole
+![image](https://user-images.githubusercontent.com/97601366/155225253-331c16a8-ad14-47c6-b274-3397e6479a2e.png)
+Create codePipeline
 ![image](https://user-images.githubusercontent.com/97601366/155223172-5aab2c7b-c043-4477-a092-d38ab36304db.png)
+![pipelinesource](https://user-images.githubusercontent.com/97601366/155223872-ebc8a61e-438c-4b68-89c0-378b15cce476.png)
 ![image](https://user-images.githubusercontent.com/97601366/155223007-3be1c0a9-17c1-4af5-9bd4-e877df1593d3.png)
+Skip the deploy stage and create the pipeline
+
+## Step 6: Create Task Definition and select the container image URI you created in ECR.
+![fargate](https://user-images.githubusercontent.com/97601366/155226331-9d5d9495-82fe-4cd9-aa5a-aa32d92b9c70.png)
+
+![image](https://user-images.githubusercontent.com/97601366/155225915-d6301c50-bca8-4271-be24-8c9a05a1128c.png)
+![image](https://user-images.githubusercontent.com/97601366/155226286-0203dbdb-9d53-4b3a-9316-48afa68a6a05.png)
 
 
 
-## Step 6: Create Task Definition and select the container image you created in ECR.
-
-## Step 7:
-Create an ECS Cluster, then create a task using the task definition created earlier
+## Step 7: Create an ECS Cluster, then create a task using the task definition created earlier
 Ensure that auto assign IP is enabled and ensure that the security group has its ports exposed(8080 and 80)
 
-
-## Step 8: Specify your buildspec as seen below
+## Step 8: 
 
 
 phases:
