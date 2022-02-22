@@ -4,27 +4,24 @@
 
 This is a CI/CD Model for building and updating docker images from github (as a repo) and ECS cluster as a target.
 
-
 ## Documentation
 
-This project assumes you are have some basic knowledge in Springboot applications, docker, Git, Github and AWS Pipeline.
-setup does the following:
-
+This project assumes you are have some basic knowledge of Springboot applications, Docker, Git, Github and AWS Pipeline.
 If you are not familiar with these concepts/tools, please visit the following links:
-
 https://www.docker.com/101-tutorial
 https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#getting-started
 https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/welcome.html
 https://docs.aws.amazon.com/codebuild/latest/APIReference/codebuild-api.pdf
 https://docs.github.com/en/get-started/quickstart/create-a-repo
 
+## This setup does the following:
 
 ## Summary:
 * Creates a source(repo) as github where the dockerfile, sourcecode(Javafiles) as well as configurations(buildspec) and uri of image, etc., are stored.
 * Once this source is created, the pipeline can then be connected by linking this repo as source in the first stage of the codepipeline.
 * In the second stage, codebuild takes the dockerfile and javafiles and creates an image with it.
 * The image created is the stored in a private repository in ECR.
-* Each time there is a commit on github, the pipeline is triggered and codebuild compiles the docker image.
+* Each time there is a commit on github, the pipeline is triggered and codebuild compiles the Docker image.
 * ECR is then configured to use the latest version of the image gotten from ECR.
 
 Step 1: Creating a repo as source
