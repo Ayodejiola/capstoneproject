@@ -89,6 +89,10 @@ While configuring our codebuild, notice that we set Github as our source so our 
 Assign the below policies to your codebuildrole
 ![image](https://user-images.githubusercontent.com/97601366/155225253-331c16a8-ad14-47c6-b274-3397e6479a2e.png)
 * Create codepipeline
+* Ensure that it pushes these changes to the master branch. 
+* If we want, we can push to a dev branch for a staging environment. 
+
+
 ![image](https://user-images.githubusercontent.com/97601366/155223172-5aab2c7b-c043-4477-a092-d38ab36304db.png)
 ![pipelinesource](https://user-images.githubusercontent.com/97601366/155223872-ebc8a61e-438c-4b68-89c0-378b15cce476.png)
 ![image](https://user-images.githubusercontent.com/97601366/155223007-3be1c0a9-17c1-4af5-9bd4-e877df1593d3.png)
