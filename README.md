@@ -41,6 +41,7 @@ https://docs.github.com/en/get-started/using-git/about-git#github-and-the-comman
 
 ![image](https://user-images.githubusercontent.com/97601366/155216588-0e458725-95ab-47f3-9cc6-7227b4635fca.png)
 ![image](https://user-images.githubusercontent.com/97601366/155216789-5ab620de-3b89-4f4d-95c5-61e8e024f525.png)
+![codepipelineeddited2](https://user-images.githubusercontent.com/97601366/155222729-41baa1f1-358b-436b-bd01-ce310f04283c.png)
 
 ## Step 3: Specify your buildspec as seen below
 
@@ -75,20 +76,23 @@ artifacts:
    - target/order-service.jar
    ```
 
-
-
 ## Step 4: Create codebuild 
+
 Configure codebuild as follows:
 
 ![codebuildeditted](https://user-images.githubusercontent.com/97601366/155218149-32cbe413-c55a-49e5-8e81-bafa1fa1f1a8.png)
 ![codebuild2eddited](https://user-images.githubusercontent.com/97601366/155219066-d3315295-9111-498f-888b-c362f38aae76.png)
 ![image](https://user-images.githubusercontent.com/97601366/155219234-516f173c-93f1-432f-bc9e-10a15fe86fd0.png)
 
-While configuring your codebuild, set Github as your source so your Buildspec can be fetched from your repo(source) and ensure that the "priviledged" checkbox is ticked. This would give elevated permissions needed for docker operations.
-Trigger codebuild to build initial image.
+
+While configuring our codebuild, notice that we set Github as our source so our Buildspec can be fetched from our repo(source). We also ensure that the "priviledged" checkbox is ticked. This would give elevated permissions needed for docker operations.
 
 
 ## Step 5: Create codepipeline, specify the stages(source, codebuild- created earlier)
+
+![image](https://user-images.githubusercontent.com/97601366/155223172-5aab2c7b-c043-4477-a092-d38ab36304db.png)
+![image](https://user-images.githubusercontent.com/97601366/155223007-3be1c0a9-17c1-4af5-9bd4-e877df1593d3.png)
+
 
 
 ## Step 6: Create Task Definition and select the container image you created in ECR.
