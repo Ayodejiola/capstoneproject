@@ -80,7 +80,9 @@ artifacts:
 Configure codebuild as follows:
 
 ![codebuildeditted](https://user-images.githubusercontent.com/97601366/155218149-32cbe413-c55a-49e5-8e81-bafa1fa1f1a8.png)
+
 ![codebuild2eddited](https://user-images.githubusercontent.com/97601366/155219066-d3315295-9111-498f-888b-c362f38aae76.png)
+
 ![image](https://user-images.githubusercontent.com/97601366/155219234-516f173c-93f1-432f-bc9e-10a15fe86fd0.png)
 
 While configuring our codebuild, notice that we set Github as our source so our Buildspec can be fetched from our repo(source). We also ensure that the "priviledged" checkbox is ticked. This would give elevated permissions needed for docker operations.
