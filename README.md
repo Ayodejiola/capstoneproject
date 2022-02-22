@@ -115,7 +115,7 @@ Skip the deploy stage and create the pipeline
 * Select Fargate
 * Select Linux
 * Select Task Definition
-* Select VPC and SUBnet
+* Select VPC and Subnet
 * Expose ports 80 and 8080
 * Enable auto Assign IP
 * Run task
