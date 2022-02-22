@@ -19,13 +19,13 @@ https://docs.aws.amazon.com/codebuild/latest/APIReference/codebuild-api.pdf
 https://docs.github.com/en/get-started/quickstart/create-a-repo
 
 
-#Summary:
-1. Creates a source(repo) as github where the dockerfile, sourcecode(Javafiles) as well as configurations(buildspec) and uri of image, etc., are stored.
-2. Once this source is created, the pipeline can then be connected by linking this repo as source in the first stage of the codepipeline.
-3. In the second stage, codebuild takes the dockerfile and javafiles and creates an image with it.
-4. The image created is the stored in a private repository in ECR.
-5. Each time there is a commit on github, the pipeline is triggered and codebuild compiles the docker image.
-6. ECR is then configured to use the latest version of the image gotten from ECR.
+## Summary:
+* Creates a source(repo) as github where the dockerfile, sourcecode(Javafiles) as well as configurations(buildspec) and uri of image, etc., are stored.
+* Once this source is created, the pipeline can then be connected by linking this repo as source in the first stage of the codepipeline.
+* In the second stage, codebuild takes the dockerfile and javafiles and creates an image with it.
+* The image created is the stored in a private repository in ECR.
+* Each time there is a commit on github, the pipeline is triggered and codebuild compiles the docker image.
+* ECR is then configured to use the latest version of the image gotten from ECR.
 
 Step 1: Creating a repo as source
 Organize the sourcecode for your Springboot application locally(organised properly in directories).
