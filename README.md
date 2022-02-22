@@ -31,13 +31,13 @@ Step 1: Creating a repo as source
 Organize the sourcecode for your Springboot application locally(organised properly in directories).
 Using git, the following commands will initialize your repo, add a readme, make your first commit and main branch, initialize changes made to your repo locally and push the local version to perform a full sync.
 
-git init 
+```git init 
 git add README.md
 git commit -m "first commit"
 git branch -M main
 git remote add origin yourrepo
 git push -u origin main
-
+```
 For more information on this please visit
 https://docs.github.com/en/get-started/using-git/about-git#github-and-the-command-line
 
